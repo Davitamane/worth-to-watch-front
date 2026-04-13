@@ -24,7 +24,11 @@ export const metadata: Metadata = {
 
 const RootLayout = ({
   children,
-}: Readonly<{ children: React.ReactNode }>) => {
+  modal,
+}: {
+  children: React.ReactNode;
+  modal: React.ReactNode;
+}) => {
   return (
     <html
       lang="en"
@@ -33,6 +37,7 @@ const RootLayout = ({
       <body className="flex min-h-full flex-col bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
         <Nav />
         {children}
+        {modal}
       </body>
     </html>
   );

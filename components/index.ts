@@ -5,3 +5,5 @@ export * from "./ReviewDisplay";
 export * from "./SearchBar";
 export * from "./TonePicker";
 export * from "./MovieChat";
+export * from "./SettingsModal";
+export * from "./BaseModal";
