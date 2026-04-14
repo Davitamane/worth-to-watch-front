@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { PlanBadge } from "@/components";
+import { Button, PlanBadge } from "@/components";
 
 const BillingModal = () => {
   const router = useRouter();
@@ -20,13 +20,9 @@ const BillingModal = () => {
       </div>
 
       <div className="mt-8 flex justify-end gap-3">
-        <button
-          type="button"
-          onClick={() => router.back()}
-          className="px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-md transition-colors"
-        >
+        <Button variant="ghost" type="button" onClick={() => router.back()}>
           Close
-        </button>
+        </Button>
       </div>
     </div>
   );

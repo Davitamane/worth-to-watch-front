@@ -1,4 +1,7 @@
 export * from "./BackButton";
+export * from "./Button";
+export * from "./Input";
+export * from "./PasswordInput";
 export * from "./MovieCard";
 export * from "./Nav";
 export * from "./PlanBadge";
@@ -11,3 +14,4 @@ export * from "./BillingModal";
 export * from "./LoginModal";
 export * from "./RegisterModal";
 export * from "./BaseModal";
+export * from "./ForgotPasswordModal";
