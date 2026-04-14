@@ -7,4 +7,7 @@ export * from "./SearchBar";
 export * from "./TonePicker";
 export * from "./MovieChat";
 export * from "./SettingsModal";
+export * from "./BillingModal";
+export * from "./LoginModal";
+export * from "./RegisterModal";
 export * from "./BaseModal";
