@@ -29,10 +29,28 @@ const RegisterModal = () => {
       </div>
 
       <div className="space-y-4">
-        <Input id="register-name" label="Full name" type="text" placeholder="Jane Doe" />
-        <Input id="register-email" label="Email address" type="email" placeholder="you@example.com" />
-        <PasswordInput id="register-password" label="Password" placeholder="••••••••" />
-        <PasswordInput id="register-confirm-password" label="Confirm password" placeholder="••••••••" />
+        <Input
+          id="register-name"
+          label="Full name"
+          type="text"
+          placeholder="Jane Doe"
+        />
+        <Input
+          id="register-email"
+          label="Email address"
+          type="email"
+          placeholder="you@example.com"
+        />
+        <PasswordInput
+          id="register-password"
+          label="Password"
+          placeholder="••••••••"
+        />
+        <PasswordInput
+          id="register-confirm-password"
+          label="Confirm password"
+          placeholder="••••••••"
+        />
       </div>
 
       <div className="mt-6 flex justify-end gap-3">
@@ -46,12 +64,12 @@ const RegisterModal = () => {
 
       <p className="mt-5 text-center text-sm text-zinc-500 dark:text-zinc-400">
         Already have an account?{" "}
-        <Link
-          href="/login"
+        <button
           className="font-medium text-zinc-900 hover:underline dark:text-zinc-50"
+          onClick={() => router.replace("/login")}
         >
           Sign in
-        </Link>
+        </button>
       </p>
     </div>
   );

@@ -5,7 +5,12 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
 import { GoogleIcon } from "@/icons";
-import { Button, ForgotPasswordModal, Input, PasswordInput } from "@/components";
+import {
+  Button,
+  ForgotPasswordModal,
+  Input,
+  PasswordInput,
+} from "@/components";
 
 const LoginModal = () => {
   const router = useRouter();
@@ -33,10 +38,19 @@ const LoginModal = () => {
         </div>
 
         <div className="space-y-4">
-          <Input id="login-email" label="Email address" type="email" placeholder="you@example.com" />
+          <Input
+            id="login-email"
+            label="Email address"
+            type="email"
+            placeholder="you@example.com"
+          />
 
           <div className="space-y-1.5">
-            <PasswordInput id="login-password" label="Password" placeholder="••••••••" />
+            <PasswordInput
+              id="login-password"
+              label="Password"
+              placeholder="••••••••"
+            />
             <button
               type="button"
               onClick={() => setShowForgotPassword(true)}
@@ -58,12 +72,12 @@ const LoginModal = () => {
 
         <p className="mt-5 text-center text-sm text-zinc-500 dark:text-zinc-400">
           Don't have an account?{" "}
-          <Link
-            href="/register"
+          <button
             className="font-medium text-zinc-900 hover:underline dark:text-zinc-50"
+            onClick={() => router.replace("/register")}
           >
             Sign up
-          </Link>
+          </button>
         </p>
       </div>
 
