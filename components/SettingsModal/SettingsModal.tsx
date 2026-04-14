@@ -1,9 +1,10 @@
 "use client";
-import { useRouter } from "next/navigation";
+
 import { Button, TonePicker } from "@/components";
+import useModal from "@/hooks/useModal";
 
 const SettingsModal = () => {
-  const router = useRouter();
+  const { close } = useModal();
 
   return (
     <div className="px-6 py-8">
@@ -19,7 +20,7 @@ const SettingsModal = () => {
       </div>
 
       <div className="mt-8 flex justify-end gap-3">
-        <Button variant="ghost" type="button" onClick={() => router.back()}>
+        <Button variant="ghost" type="button" onClick={close}>
           Close
         </Button>
       </div>

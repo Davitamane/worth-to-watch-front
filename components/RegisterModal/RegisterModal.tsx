@@ -1,12 +1,11 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { GoogleIcon } from "@/icons";
 import { Button, Input, PasswordInput } from "@/components";
+import useModal from "@/hooks/useModal";
 
 const RegisterModal = () => {
-  const router = useRouter();
+  const { close, open } = useModal();
 
   return (
     <div className="px-6 py-8">
@@ -54,7 +53,7 @@ const RegisterModal = () => {
       </div>
 
       <div className="mt-6 flex justify-end gap-3">
-        <Button variant="ghost" type="button" onClick={() => router.back()}>
+        <Button variant="ghost" type="button" onClick={close}>
           Cancel
         </Button>
         <Button variant="primary" type="button">
@@ -66,7 +65,8 @@ const RegisterModal = () => {
         Already have an account?{" "}
         <button
           className="font-medium text-zinc-900 hover:underline dark:text-zinc-50"
-          onClick={() => router.replace("/login")}
+          onClick={() => open("login")}
+          type="button"
         >
           Sign in
         </button>

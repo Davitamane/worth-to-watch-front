@@ -1,6 +1,8 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Nav } from "@/components";
+import ModalController from "@/components/ModalController";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,13 +24,7 @@ export const metadata: Metadata = {
     "Your friend who has seen it all. Get an honest AI verdict on any movie in seconds.",
 };
 
-const RootLayout = ({
-  children,
-  modal,
-}: {
-  children: React.ReactNode;
-  modal: React.ReactNode;
-}) => {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html
       lang="en"
@@ -37,7 +33,9 @@ const RootLayout = ({
       <body className="flex min-h-full flex-col bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
         <Nav />
         {children}
-        {modal}
+        <Suspense>
+          <ModalController />
+        </Suspense>
       </body>
     </html>
   );

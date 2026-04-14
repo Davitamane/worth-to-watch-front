@@ -1,9 +1,10 @@
 "use client";
-import { useRouter } from "next/navigation";
+
 import { Button, PlanBadge } from "@/components";
+import useModal from "@/hooks/useModal";
 
 const BillingModal = () => {
-  const router = useRouter();
+  const { close } = useModal();
 
   return (
     <div className="px-6 py-8">
@@ -20,7 +21,7 @@ const BillingModal = () => {
       </div>
 
       <div className="mt-8 flex justify-end gap-3">
-        <Button variant="ghost" type="button" onClick={() => router.back()}>
+        <Button variant="ghost" type="button" onClick={close}>
           Close
         </Button>
       </div>

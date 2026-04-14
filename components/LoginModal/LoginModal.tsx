@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 import { FormProvider } from "react-hook-form";
 import { GoogleIcon } from "@/icons";
@@ -12,10 +11,11 @@ import {
   PasswordInput,
 } from "@/components";
 import { useLoginForm } from "@/hooks";
+import useModal from "@/hooks/useModal";
 import { loginValidation } from "./LoginModal.validation";
 
 const LoginModal = () => {
-  const router = useRouter();
+  const { close, open } = useModal();
   const { methods, onSubmit, showForgotPassword, setShowForgotPassword } =
     useLoginForm();
 
@@ -69,7 +69,7 @@ const LoginModal = () => {
         </div>
 
         <div className="mt-6 flex justify-end gap-3">
-          <Button variant="ghost" type="button" onClick={() => router.back()}>
+          <Button variant="ghost" type="button" onClick={close}>
             Cancel
           </Button>
           <Button variant="primary" type="submit">
@@ -81,7 +81,8 @@ const LoginModal = () => {
           Don't have an account?{" "}
           <button
             className="font-medium text-zinc-900 hover:underline dark:text-zinc-50"
-            onClick={() => router.replace("/register")}
+            onClick={() => open("register")}
+            type="button"
           >
             Sign up
           </button>

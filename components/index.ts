@@ -16,3 +16,4 @@ export * from "./LoginModal";
 export * from "./RegisterModal";
 export * from "./BaseModal";
 export * from "./ForgotPasswordModal";
+export { default as ModalController } from "./ModalController";

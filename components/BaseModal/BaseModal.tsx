@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
+import useModal from "@/hooks/useModal";
 
 const BaseModal = ({ children }: { children: React.ReactNode }) => {
-  const router = useRouter();
+  const { close } = useModal();
 
   return (
     <>
@@ -20,7 +20,7 @@ const BaseModal = ({ children }: { children: React.ReactNode }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        onClick={() => router.back()}
+        onClick={close}
       >
         <motion.div
           className="w-full max-w-2xl bg-white dark:bg-zinc-950 rounded-lg shadow-lg"
