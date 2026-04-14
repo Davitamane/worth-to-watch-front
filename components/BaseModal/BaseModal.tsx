@@ -13,7 +13,6 @@ const BaseModal = ({ children }: { children: React.ReactNode }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        onClick={() => router.back()}
       />
 
       <motion.div
@@ -21,6 +20,7 @@ const BaseModal = ({ children }: { children: React.ReactNode }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
+        onClick={() => router.back()}
       >
         <motion.div
           className="w-full max-w-2xl bg-white dark:bg-zinc-950 rounded-lg shadow-lg"
@@ -28,6 +28,7 @@ const BaseModal = ({ children }: { children: React.ReactNode }) => {
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.95, opacity: 0 }}
           transition={{ type: "spring", damping: 20, stiffness: 300 }}
+          onClick={(e) => e.stopPropagation()}
         >
           {children}
         </motion.div>
