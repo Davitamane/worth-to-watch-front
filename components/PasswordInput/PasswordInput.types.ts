@@ -3,4 +3,5 @@ export type PasswordInputProps = Omit<
   "type"
 > & {
   label: string;
+  error?: string;
 };

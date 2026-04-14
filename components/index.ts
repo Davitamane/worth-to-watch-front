@@ -1,5 +1,6 @@
 export * from "./BackButton";
 export * from "./Button";
+export * from "./Checkbox";
 export * from "./Input";
 export * from "./PasswordInput";
 export * from "./MovieCard";

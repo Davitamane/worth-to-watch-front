@@ -1,24 +1,27 @@
 "use client";
 
-import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
+import { FormProvider } from "react-hook-form";
 import { GoogleIcon } from "@/icons";
 import {
   Button,
+  Checkbox,
   ForgotPasswordModal,
   Input,
   PasswordInput,
 } from "@/components";
+import { useLoginForm } from "@/hooks";
+import { loginValidation } from "./LoginModal.validation";
 
 const LoginModal = () => {
   const router = useRouter();
-  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const { methods, onSubmit, showForgotPassword, setShowForgotPassword } =
+    useLoginForm();
 
   return (
-    <>
-      <div className="px-6 py-8">
+    <FormProvider {...methods}>
+      <form onSubmit={methods.handleSubmit(onSubmit)} className="px-6 py-8">
         <h1 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
           Sign in
         </h1>
@@ -39,25 +42,29 @@ const LoginModal = () => {
 
         <div className="space-y-4">
           <Input
-            id="login-email"
+            {...methods.register("email", loginValidation.email)}
             label="Email address"
-            type="email"
             placeholder="you@example.com"
+            error={methods.formState.errors.email?.message}
           />
 
           <div className="space-y-1.5">
             <PasswordInput
-              id="login-password"
+              {...methods.register("password", loginValidation.password)}
               label="Password"
               placeholder="••••••••"
+              error={methods.formState.errors.password?.message}
             />
-            <button
-              type="button"
-              onClick={() => setShowForgotPassword(true)}
-              className="text-xs text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50 transition-colors"
-            >
-              Forgot password?
-            </button>
+            <div className="flex items-center justify-between pt-2">
+              <Checkbox name="remember" label="Remember me" />
+              <button
+                type="button"
+                onClick={() => setShowForgotPassword(true)}
+                className="text-xs text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50 transition-colors"
+              >
+                Forgot password?
+              </button>
+            </div>
           </div>
         </div>
 
@@ -65,7 +72,7 @@ const LoginModal = () => {
           <Button variant="ghost" type="button" onClick={() => router.back()}>
             Cancel
           </Button>
-          <Button variant="primary" type="button">
+          <Button variant="primary" type="submit">
             Sign in
           </Button>
         </div>
@@ -79,14 +86,14 @@ const LoginModal = () => {
             Sign up
           </button>
         </p>
-      </div>
+      </form>
 
       <AnimatePresence>
         {showForgotPassword && (
           <ForgotPasswordModal onClose={() => setShowForgotPassword(false)} />
         )}
       </AnimatePresence>
-    </>
+    </FormProvider>
   );
 };
 
