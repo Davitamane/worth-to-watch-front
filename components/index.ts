@@ -1,3 +1,4 @@
+export * from "./BackButton";
 export * from "./MovieCard";
 export * from "./Nav";
 export * from "./PlanBadge";
