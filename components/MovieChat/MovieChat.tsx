@@ -1,5 +1,6 @@
 "use client";
 
+import { twMerge } from "tailwind-merge";
 import { DUMMY_MESSAGES } from "./messages";
 
 const MovieChat = () => {
@@ -13,14 +14,15 @@ const MovieChat = () => {
         {DUMMY_MESSAGES.map((msg, i) => (
           <div
             key={i}
-            className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+            className={twMerge("flex", msg.role === "user" ? "justify-end" : "justify-start")}
           >
             <p
-              className={`max-w-xs rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+              className={twMerge(
+                "max-w-xs rounded-2xl px-4 py-2.5 text-sm leading-relaxed",
                 msg.role === "user"
                   ? "bg-zinc-900 text-white dark:bg-zinc-50 dark:text-zinc-900"
                   : "bg-white text-zinc-700 shadow-sm dark:bg-zinc-800 dark:text-zinc-300"
-              }`}
+              )}
             >
               {msg.text}
             </p>

@@ -12,13 +12,22 @@ const Nav = () => {
           worthto.watch
         </Link>
         <div className="flex items-center gap-5 text-sm text-zinc-600 dark:text-zinc-400">
-          <Link href="/history" className="hover:text-zinc-900 dark:hover:text-zinc-50">
+          <Link
+            href="/history"
+            className="hover:text-zinc-900 dark:hover:text-zinc-50"
+          >
             History
           </Link>
-          <Link href="/settings" className="hover:text-zinc-900 dark:hover:text-zinc-50">
+          <Link
+            href="/settings"
+            className="hover:text-zinc-900 dark:hover:text-zinc-50"
+          >
             Settings
           </Link>
-          <Link href="/billing" className="hover:text-zinc-900 dark:hover:text-zinc-50">
+          <Link
+            href="/billing"
+            className="hover:text-zinc-900 dark:hover:text-zinc-50"
+          >
             <PlanBadge plan="free" />
           </Link>
           <Link

@@ -1,3 +1,4 @@
+import { twMerge } from "tailwind-merge";
 import type { ButtonProps } from "./Button.types";
 
 const variantClasses = {
@@ -23,9 +24,7 @@ const Button = ({
 
   return (
     <button
-      className={[base, padding, width, variantClasses[variant], className]
-        .filter(Boolean)
-        .join(" ")}
+      className={twMerge(base, padding, width, variantClasses[variant], className)}
       {...props}
     >
       {children}
